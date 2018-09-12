@@ -13,4 +13,12 @@ export class UserService {
   getAllUsers(){
     return this.http.get<User[]>(`${environment.apiUrl}/userList`);
   }
+
+  getUserById(id: string) {
+    return this.http.get<User>(`${environment.apiUrl}/user/${id}`);
+  }
+
+  updateUser(user: User) {
+    return this.http.put(`${environment.apiUrl}/user.id`, user);
+  }
 }
