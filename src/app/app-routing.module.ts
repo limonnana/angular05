@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { LoginFormComponent} from './login-form/login-form.component';
 import { RegisterComponent } from './register/register.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
 
 const routes: Routes = [
 
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path:'users',
     component: UserListComponent
+  },
+  {
+    path:'editUser/:id',
+    component: EditUserComponent
   }
 ];
 
