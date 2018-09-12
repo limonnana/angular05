@@ -15,10 +15,14 @@ export class UserService {
   }
 
   getUserById(id: string) {
+<<<<<<< HEAD
     return this.http.get<User>(`${environment.apiUrl}/user/${id}`);
   }
 
   updateUser(user: User) {
-    return this.http.put(`${environment.apiUrl}/updateUser`, user);
+    return this.http.put(`${environment.apiUrl}/user.id`, user);
+=======
+    return this.http.get<User>(`${environment.apiUrl}/${id}`);
+>>>>>>> 4ce85c86e4bc9902ac92d849a5e1d52c3becc7a3
   }
 }

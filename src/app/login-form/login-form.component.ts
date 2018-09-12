@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationService} from '../services/authentication.service';
+
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +11,7 @@ import { AuthenticationService } from '../services/authentication.service';
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private autenticationService: AuthenticationService) { }
+  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) { }
 
 
     ngOnInit() {
@@ -22,7 +23,7 @@ export class LoginFormComponent implements OnInit {
     }
   
     // convenience getter for easy access to form fields
-    get f() { return this.loginForm.controls; }
+  get f() { return this.loginForm.controls; }
 
   login(){
     console.log("login ... ");
@@ -31,8 +32,7 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     //if (this.loginForm.valid) {
       console.log("Form Values: " + this.f.username.value + " " +  this.f.password.value);
-       this.autenticationService.login(this.f.username.value , this.f.password.value);
-      //}
+    //}
 
   }
   
