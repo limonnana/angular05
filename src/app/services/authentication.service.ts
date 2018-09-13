@@ -14,7 +14,7 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
      
-    this.http.post<any>(`${environment.apiUrl}/login`,{username:username, password:password})
-    .subscribe((response:any) => {console.log(response)})
+    return this.http.post<any>(`${environment.apiUrl}/login`,{username:username, password:password});
+   
   }
 }

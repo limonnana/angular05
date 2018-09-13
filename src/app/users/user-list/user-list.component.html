@@ -1,6 +1,8 @@
 <div class="col-md-6">
-  <h2> User Details</h2>
+  <h3> User Details</h3>
+  <br>
   <button class="btn btn-danger" (click)="addUser()"> Add User</button>
+  <br><br>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -16,7 +18,7 @@
       <td class="hidden">{{ user.id }}</td>
       <td><a routerLink="/editUser/{{user.id}}">{{ user.name }} {{ user.lastName }}</a></td>
       <td>{{ user.email }}</td>
-      <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button>
+      <td><button class="btn btn-danger" (click)="theAlert(user)"> Delete</button>
        
     </tr>
     </tbody>

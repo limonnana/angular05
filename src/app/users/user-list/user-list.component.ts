@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../entities/user';
-import { first } from 'rxjs/operators';
+import { Router } from "@angular/router";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-user-list',
@@ -12,7 +13,7 @@ export class UserListComponent implements OnInit {
 
   users: User[];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.userService.getAllUsers()
@@ -20,5 +21,41 @@ export class UserListComponent implements OnInit {
         this.users = data;
       });
     }
+
+    deleteUser(user: User): void {
+      this.userService.deleteUser(user.id)
+      .subscribe((response:any) => {console.log(response.response)})
+      this.users = this.users.filter(u => u !== user);
+      
+    };
+
+    addUser(){
+      this.router.navigate(['register']);
+    }
+
+    theAlert(user: User){
+      
+      Swal({
+        title: 'Are you sure to delete this user?',
+        text: 'You will not be able to recover !',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, keep it'
+      }).then((result) => {
+        console.log(result);
+        if (result.value) {
+          this.deleteUser(user);
+         // For more information about handling dismissals please visit
+        // https://sweetalert2.github.io/#handling-dismissals
+       
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          Swal(
+            'Cancelled'
+          )
+          
+        }
+      })
+  }
 
 }

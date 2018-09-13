@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService} from '../services/authentication.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -11,7 +13,7 @@ import { AuthenticationService} from '../services/authentication.service';
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) { }
+  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService, private router: Router) { }
 
 
     ngOnInit() {
@@ -30,11 +32,18 @@ export class LoginFormComponent implements OnInit {
   }
   
   onSubmit() {
-    //if (this.loginForm.valid) {
+    if (this.loginForm.valid) {
       console.log("Form Values: " + this.f.username.value + " " +  this.f.password.value);
-    //}
-
+      this.authenticationService.login(this.f.username.value, this.f.password.value)
+      .subscribe((response:any) => {
+        console.log(response.response);
+        this.router.navigate(['login']);
+      }), error => {
+        console.log(error);
+        console.log(" username and password are incorrect ");
   }
-  
+  }
+  }
 
+  
 }
