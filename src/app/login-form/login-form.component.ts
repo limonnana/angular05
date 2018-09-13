@@ -13,7 +13,7 @@ import { Router } from "@angular/router";
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private cookieService : CookieService, private formBuilder: FormBuilder, private authenticationService: AuthenticationService, private router: Router) { }
 
 
     ngOnInit() {
@@ -36,14 +36,23 @@ export class LoginFormComponent implements OnInit {
       console.log("Form Values: " + this.f.username.value + " " +  this.f.password.value);
       this.authenticationService.login(this.f.username.value, this.f.password.value)
       .subscribe((response:any) => {
-        console.log(response.response);
-        this.router.navigate(['login']);
+        let responseRestApi = response.response;
+        console.log(responseRestApi);
+        if(responseRestApi === "Failed"){
+          this.router.navigate(['login']);
+        }else if(responseRestApi === "Success"){
+          const value = {"userId":response.userId,"token":response.token};
+          const stringfy = JSON.stringify(value);
+          this.cookieService.set('limonnana', stringfy, 3600, '/');
+          console.log("Cookie value: " + this.cookieService.get('limonnana'));
+          this.router.navigate(['users']);
+        }
+        
       }), error => {
         console.log(error);
-        console.log(" username and password are incorrect ");
-  }
+      }
   }
   }
 
-  
+
 }

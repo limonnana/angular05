@@ -9,8 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import {AuthenticationService} from "./services/authentication.service";
+import { RegisterService} from "./services/register.service";
 import {UserService} from "./services/user.service";
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { EditUserComponent } from './users/edit-user/edit-user.component';
     FormsModule,
     ReactiveFormsModule
    ],
-  providers: [AuthenticationService, UserService],
+  providers: [AuthenticationService, UserService, CookieService, RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
