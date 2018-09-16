@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { UserService} from '../../services/user.service';
+import { SecurityService } from '../../services/security.service';
 import { User } from '../../entities/user';
 import { Router } from "@angular/router";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-user-list',
@@ -13,7 +16,9 @@ export class UserListComponent implements OnInit {
 
   users: User[];
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private security: SecurityService, private userService: UserService, private router: Router) { 
+    security.checkSecurity();
+  }
 
   ngOnInit() {
     this.userService.getAllUsers()
@@ -21,6 +26,8 @@ export class UserListComponent implements OnInit {
         this.users = data;
       });
     }
+
+   
 
     deleteUser(user: User): void {
       this.userService.deleteUser(user.id)
