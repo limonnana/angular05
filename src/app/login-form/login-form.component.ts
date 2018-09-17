@@ -43,7 +43,7 @@ export class LoginFormComponent implements OnInit {
         }else if(responseRestApi === "Success"){
           const value = {"userId":response.userId,"token":response.token};
           const stringfy = JSON.stringify(value);
-          this.cookieService.set('limonnana', stringfy, 3600, '/');
+          this.cookieService.set('limonnana', stringfy, 1, '/');
           console.log("Cookie value: " + this.cookieService.get('limonnana'));
           this.router.navigate(['users']);
         }

@@ -14,6 +14,9 @@ import {UserService} from "./services/user.service";
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { CookieService } from 'ngx-cookie-service';
 import { SecurityService } from './services/security.service';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,8 +31,11 @@ import { SecurityService } from './services/security.service';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot(),
+    NgbModule.forRoot()
    ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [AuthenticationService, UserService, CookieService, RegisterService, SecurityService],
   bootstrap: [AppComponent]
 })
