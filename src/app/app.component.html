@@ -1,36 +1,34 @@
-<div class="container">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    Limonnana
-  </a>
 
-  <button class="navbar-toggler" type="button">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+    LimonNana
+    </a>
+    
+    <button class="navbar-toggler" type="button"
+    (click)="toggleNavbar()">
     <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse">
+    </button>
+    
+    
+    <div class="collapse navbar-collapse"
+    [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Item 1</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#">Item 2</a>
-      </li>
+    <li class="nav-item">
+    <a class="nav-link" href="login">Login</a>
+    </li>
+    
+    <li class="nav-item">
+    <a class="nav-link" href="users">Users</a>
+    </li>
     </ul>
-  </div>
-</nav>
-<p>
-  <ngb-alert [dismissible]="false">
-    <strong>Warning!</strong> Sample alert.
-  </ngb-alert>
-</p>
+    </div>
+    </nav>
+    
 
 <router-outlet></router-outlet>
    
-</div>
+
     
     
 
