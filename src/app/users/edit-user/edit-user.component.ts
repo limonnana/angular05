@@ -56,4 +56,8 @@ export class EditUserComponent implements OnInit {
       this.router.navigate(['users']);
 }
 
+  changePassword(userId : string){
+    this.router.navigate(['changePassword/'+ this.userId$]);
+  }
+
 }

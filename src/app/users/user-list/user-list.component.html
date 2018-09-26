@@ -1,7 +1,7 @@
 <div class="col-md-6">
-  <h3> Users</h3>
+  
   <br>
-  <button class="btn btn-danger" (click)="addUser()"> Add User</button>
+  <button class="btn btn-light" (click)="addUser()"> Add User</button>
   <br><br>
   <table class="table table-striped">
     <thead>
@@ -17,7 +17,7 @@
     <tr *ngFor="let user of users">
       <td class="hidden">{{ user.id }}</td>
       <td><a routerLink="/editUser/{{user.id}}">{{ user.name }} {{ user.lastName }}</a></td>
-      <td>{{ user.email }}</td>
+      <td>{{ user.email }} {{ user.password }}</td>
       <td><button class="btn btn-danger" (click)="theAlert(user)"> Delete</button>
        
     </tr>

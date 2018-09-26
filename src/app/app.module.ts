@@ -15,6 +15,7 @@ import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { CookieService } from 'ngx-cookie-service';
 import { SecurityService } from './services/security.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChangePassComponent } from './users/change-pass/change-pass.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginFormComponent,
     RegisterComponent,
     UserListComponent,
-    EditUserComponent
+    EditUserComponent,
+    ChangePassComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,9 @@
 <div class="col-md-6">
-    <h2 class="text-center">Edit User</h2>
+
+  <button class="btn btn-light" (click)="changePassword()">Change Password</button>
+
+<br><br>
+
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
       
       <div class="form-group">
@@ -17,6 +21,6 @@
           <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
         </div>
   
-      <button class="btn btn-success">Update</button>
+      <button class="btn btn-light">Update</button>
     </form>
   </div>
