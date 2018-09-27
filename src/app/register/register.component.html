@@ -23,16 +23,23 @@
 </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="text" id="password" class="form-control" formControlName="password">
+    <input type="password" id="password" class="form-control" formControlName="password">
   </div>
 
   <div class="form-group">
     <label for="retypePassword">Retype Password</label>
-    <input type="text" id="retypePassword" class="form-control" formControlName="retypePassword">
+    <input type="password" id="retypePassword" class="form-control" formControlName="retypePassword">
   </div>
 
 
-  <button  [disabled]="!registerForm.valid" >Register</button>
+  <button [disabled]="!registerForm.valid" class="btn btn-light"  >Register</button>
 
 </form>
+
+<br><br>
+<div *ngIf="showAlertPasswordError">
+  <ngb-alert [dismissible]="false" type="danger">
+    <strong>Error !</strong> {{messagePasswordError}} .
+  </ngb-alert>
+</div>
 </div>

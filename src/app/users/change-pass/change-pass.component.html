@@ -1,4 +1,5 @@
-<div class="col-md-6">
+<div class="container">
+  <br>
 
    
   <br>
@@ -7,14 +8,21 @@
         
         <div class="form-group">
           <label for="newPassword">New Password:</label>
-          <input type="password" formControlName="newPassword" placeholder="new password" name="newPassword" class="form-control" id="newPassword">
+          <input type="password" formControlName="newPassword"  class="form-control" id="newPassword">
         </div>
     
         <div class="form-group">
           <label for="retypePassword">Retype Password:</label>
-          <input type="password" formControlName="retypePassword" placeholder="retype password" name="retypePassword" class="form-control" id="retypePassword">
+          <input type="password" formControlName="retypePassword"  class="form-control" id="retypePassword">
         </div>
-  
-        <button class="btn btn-light">Update</button>
+
+        <button  [disabled]="!passwordForm.valid" >Update</button>
       </form>
+
+      <br><br>
+      <div *ngIf="showAlertPasswordError">
+        <ngb-alert [dismissible]="false" type="danger">
+          <strong>Error !</strong> {{messagePasswordError}} .
+        </ngb-alert>
+      </div>
     </div>

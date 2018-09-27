@@ -15,7 +15,8 @@ export class ChangePassComponent implements OnInit {
   passwordForm: FormGroup;
   id:string = '';
   userLogin:Userlogin;
- 
+  showAlertPasswordError: boolean;
+  messagePasswordError: string;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute,  private userService: UserService) { 
     this.route.params.subscribe( params => this.userId$ = params.id );
@@ -24,15 +25,26 @@ export class ChangePassComponent implements OnInit {
   ngOnInit() {
     this.passwordForm = this.formBuilder.group({
       
-      newPassword: ['', Validators.required],
-      retypePassword: ['', Validators.required]
+      newPassword: ['', [Validators.required,Validators.minLength(7)]],
+      retypePassword: ['', [Validators.required,Validators.minLength(7)]]
      });
+     this.showAlertPasswordError = false;
+     this.messagePasswordError = " The passwords are not the same ";
   }
 
   get f() { return this.passwordForm.controls; }
 
+  checkPasswords(){
+   
+    if(this.f.newPassword.value !== this.f.retypePassword.value){
+      this.showAlertPasswordError = true;
+      return false;
+    }
+      return true;
+  }
+
   onSubmit() {
-    //if (this.loginForm.valid) {
+    if(this.checkPasswords()){
       console.log("Form Values: " + this.f.newPassword.value + " " +  this.f.retypePassword.value);
       this.userLogin = new Userlogin();
       this.userLogin.id = this.userId$;
@@ -40,6 +52,10 @@ export class ChangePassComponent implements OnInit {
       this.userService.updatePassword(this.userLogin)
       .subscribe((response:any) => {console.log(response.response)})
       this.router.navigate(['users']);
-}
+  }
+   else{
+    this.showAlertPasswordError = true;
+ }
 
+}
 }

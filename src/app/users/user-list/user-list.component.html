@@ -10,14 +10,14 @@
       <th>Name</th>
       <th>Email</th>
       <th> </th>
-      <th> </th>
+      
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let user of users">
       <td class="hidden">{{ user.id }}</td>
       <td><a routerLink="/editUser/{{user.id}}">{{ user.name }} {{ user.lastName }}</a></td>
-      <td>{{ user.email }} </td>
+      <td>{{ user.email }} {{ user.password }}</td>
       <td><button class="btn btn-danger" (click)="theAlert(user)"> Delete</button>
        
     </tr>
