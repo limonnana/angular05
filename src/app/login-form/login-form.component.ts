@@ -12,8 +12,12 @@ import { Router } from "@angular/router";
 })
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
+   message: string;
+   showAlert: boolean;
 
-  constructor(private cookieService : CookieService, private formBuilder: FormBuilder, private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private cookieService : CookieService, private formBuilder: FormBuilder, private authenticationService: AuthenticationService, private router: Router) { 
+
+  }
 
 
     ngOnInit() {
@@ -21,7 +25,9 @@ export class LoginFormComponent implements OnInit {
         username: ['', Validators.required],
         password: ['', Validators.required]
         
-      })
+      }),
+      this.message = " User and password doesn't match  ";
+      this.showAlert = false;
     }
   
     // convenience getter for easy access to form fields
@@ -39,7 +45,7 @@ export class LoginFormComponent implements OnInit {
         let responseRestApi = response.response;
         console.log(responseRestApi);
         if(responseRestApi === "Failed"){
-          this.router.navigate(['login']);
+          this.showAlert = true;
         }else if(responseRestApi === "Success"){
           const value = {"userId":response.userId,"token":response.token};
           const stringfy = JSON.stringify(value);

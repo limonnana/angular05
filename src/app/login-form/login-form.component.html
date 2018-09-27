@@ -16,4 +16,10 @@
   <button  [disabled]="!loginForm.valid" >Login</button>
 
 </form>
+<br><br>
+<div *ngIf="showAlert">
+  <ngb-alert [dismissible]="false" type="danger">
+    <strong>Error !</strong> {{message}} .
+  </ngb-alert>
+</div>
 </div>

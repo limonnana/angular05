@@ -30,4 +30,8 @@ export class UserService {
   deleteUser(id: string){
     return this.http.delete(`${environment.apiUrl}/deleteUser/${id}`);
   }
+
+  checkUserAlreadyRegistered(email: string){
+    return this.http.get<boolean>(`${environment.apiUrl}/checkUserAlreadyRegistered/${email}`);
+  }
 }

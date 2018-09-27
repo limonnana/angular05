@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>Register</h3>
+  <br>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="name">Name</label>
@@ -13,9 +13,14 @@
 
 <div class="form-group">
   <label for="email">Email</label>
-<input type="text" id="email"  class="form-control" formControlName="email">
+<input type="text" id="email"  class="form-control" formControlName="email" >
 </div>
 
+<div *ngIf="showAlert">
+  <ngb-alert [dismissible]="false" type="danger">
+    <strong>Error !</strong> {{message}} .
+  </ngb-alert>
+</div>
   <div class="form-group">
     <label for="password">Password</label>
     <input type="text" id="password" class="form-control" formControlName="password">
