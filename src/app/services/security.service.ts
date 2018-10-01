@@ -12,11 +12,14 @@ export class SecurityService {
   checkSecurity(){
     const cookie = this.cookieService.get('limonnana');
     console.log(" The Cookie value: " + cookie);
-    if(cookie !== "" && cookie !== undefined){
+    if(cookie !== "" && cookie !== undefined ){
       let cookieJson = JSON.parse(cookie);
       console.log(" The Cookie Json value: " + cookieJson.userId + " " + cookieJson.token);
       let userId = cookieJson.userId;
       let token = cookieJson.token;
+      if(userId === "" || token === ""){
+        this.router.navigate(['login']);
+      }
     }else{
       this.router.navigate(['login']);
     }

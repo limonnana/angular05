@@ -26,7 +26,7 @@ export class LoginFormComponent implements OnInit {
         password: ['', Validators.required]
         
       }),
-      this.message = " User and password doesn't match  ";
+      this.message = " User or password are wrong  ";
       this.showAlert = false;
     }
   
