@@ -1,0 +1,9 @@
+{
+ 
+    "name": "Nombre",
+    "lastName": "Apellido",
+    "password": "Contraseña",
+    "retypePassword": "Nuevamente la contraseña",
+    "register": "Registrarse"
+ 
+}
