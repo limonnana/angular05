@@ -5,6 +5,9 @@
     "lastName": "Last Name",
     "password": "Password",
     "retypePassword": "Retype Password",
-    "register": "Register"
- 
+    "register": "Register",
+    "addUser": "Add  User",
+    "delete": "Delete",
+    "users": "Users",
+    "login": "Login"
 }

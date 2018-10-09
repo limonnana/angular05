@@ -39,18 +39,17 @@ export class LoginFormComponent implements OnInit {
   
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log("Form Values: " + this.f.username.value + " " +  this.f.password.value);
+     
       this.authenticationService.login(this.f.username.value, this.f.password.value)
       .subscribe((response:any) => {
         let responseRestApi = response.response;
-        console.log(responseRestApi);
+       
         if(responseRestApi === "Failed"){
           this.showAlert = true;
         }else if(responseRestApi === "Success"){
           const value = {"userId":response.userId,"token":response.token};
           const stringfy = JSON.stringify(value);
           this.cookieService.set('limonnana', stringfy, 1, '/');
-          console.log("Cookie value: " + this.cookieService.get('limonnana'));
           this.router.navigate(['users']);
         }
         

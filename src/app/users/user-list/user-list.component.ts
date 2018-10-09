@@ -50,7 +50,7 @@ export class UserListComponent implements OnInit {
         confirmButtonText: 'Yes, delete it!',
         cancelButtonText: 'No, keep it'
       }).then((result) => {
-        console.log(result);
+        
         if (result.value) {
           this.deleteUser(user);
          // For more information about handling dismissals please visit

@@ -1,13 +1,13 @@
 <div class="col-md-6">
-  
+ 
   <br>
-  <button class="btn btn-light" (click)="addUser()"> Add User</button>
+  <button class="btn btn-light" (click)="addUser()"> {{'addUser' | translate}} </button>
   <br><br>
   <table class="table table-striped">
     <thead>
     <tr>
       <th class="hidden">Id</th>
-      <th>Name</th>
+      <th>{{'name' | translate }}</th>
       <th>Email</th>
       <th> </th>
       
@@ -18,7 +18,7 @@
       <td class="hidden">{{ user.id }}</td>
       <td><a routerLink="/editUser/{{user.id}}">{{ user.name }} {{ user.lastName }}</a></td>
       <td>{{ user.email }} {{ user.password }}</td>
-      <td><button class="btn btn-danger" (click)="theAlert(user)"> Delete</button>
+      <td><button class="btn btn-danger" (click)="theAlert(user)"> {{'delete' | translate}}</button>
        
     </tr>
     </tbody>

@@ -4,6 +4,9 @@
     "lastName": "Apellido",
     "password": "Contraseña",
     "retypePassword": "Nuevamente la contraseña",
-    "register": "Registrarse"
- 
+    "register": "Registrarse",
+    "addUser": "Nuevo Usuario",
+    "delete": "Borrar",
+    "users": "Usuarios",
+    "login": "Ingresar"
 }

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
-
+import { StorageServiceModule } from 'angular-webstorage-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -36,6 +36,7 @@ import { ChangePassComponent } from './users/change-pass/change-pass.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    StorageServiceModule,
     NgbModule.forRoot(),
     TranslateModule.forRoot({
 
