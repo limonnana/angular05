@@ -18,6 +18,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { SecurityService } from './services/security.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChangePassComponent } from './users/change-pass/change-pass.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -28,7 +30,9 @@ import { ChangePassComponent } from './users/change-pass/change-pass.component';
     RegisterComponent,
     UserListComponent,
     EditUserComponent,
-    ChangePassComponent
+    ChangePassComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

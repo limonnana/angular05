@@ -1,26 +1,26 @@
-<div class="col-md-6">
+<div class="container">
 
-  <button class="btn btn-light" (click)="changePassword()">Change Password</button>
+  <button class="btn btn-light" (click)="changePassword()">{{'changePassword' | translate}}</button>
 
 <br><br>
 
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
       
       <div class="form-group">
-        <label for="Name">Name:</label>
+        <label for="Name">{{'name' | translate }}:</label>
         <input formControlName="name" placeholder="Name" name="name" class="form-control" id="name">
       </div>
   
       <div class="form-group">
-        <label for="lastName">Last Name:</label>
+        <label for="lastName">{{'lastName' | translate }}:</label>
         <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
       </div>
 
       <div class="form-group">
-          <label for="email">Email address:</label>
+          <label for="email">Email:</label>
           <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
         </div>
   
-      <button class="btn btn-light">Update</button>
+      <button class="btn btn-light">{{'update' | translate}}</button>
     </form>
   </div>

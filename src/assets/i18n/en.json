@@ -4,10 +4,12 @@
  
     "lastName": "Last Name",
     "password": "Password",
+    "changePassword": "Change Password",
     "retypePassword": "Retype Password",
-    "register": "Register",
+    "register": "Save",
     "addUser": "Add  User",
     "delete": "Delete",
     "users": "Users",
-    "login": "Login"
+    "login": "Login",
+    "update": "Update"
 }
