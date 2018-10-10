@@ -10,5 +10,6 @@
     "delete": "Borrar",
     "users": "Usuarios",
     "login": "Ingresar",
-    "update": "Actualizar"
+    "update": "Actualizar",
+    "wrongPassword" : "La contraseña ingresada es incorrecta, o la direccion de mail no existe "
 }

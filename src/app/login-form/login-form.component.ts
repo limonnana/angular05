@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService} from '../services/authentication.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from "@angular/router";
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -14,9 +15,10 @@ export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
    message: string;
    showAlert: boolean;
+   wrongPassword: string;
 
-  constructor(private cookieService : CookieService, private formBuilder: FormBuilder, private authenticationService: AuthenticationService, private router: Router) { 
-
+  constructor(private cookieService : CookieService, private formBuilder: FormBuilder, private authenticationService: AuthenticationService, private router: Router, private translate: TranslateService) { 
+    
   }
 
 
@@ -26,7 +28,6 @@ export class LoginFormComponent implements OnInit {
         password: ['', Validators.required]
         
       }),
-      this.message = " User or password are wrong  ";
       this.showAlert = false;
     }
   
@@ -45,6 +46,8 @@ export class LoginFormComponent implements OnInit {
         let responseRestApi = response.response;
        
         if(responseRestApi === "Failed"){
+          //this.message = this.wrongPassword;
+          this.getWrongPasswordMessage();
           this.showAlert = true;
         }else if(responseRestApi === "Success"){
           const value = {"userId":response.userId,"token":response.token};
@@ -59,5 +62,10 @@ export class LoginFormComponent implements OnInit {
   }
   }
 
+  getWrongPasswordMessage(){
+    this.translate.get('wrongPassword').subscribe((text:string) => {
+      this.wrongPassword = text;
+  })
+  }
 
 }
