@@ -7,7 +7,7 @@ import { LOCAL_STORAGE,WebStorageService} from 'angular-webstorage-service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {
+export class FooterComponent  {
 
   constructor(private translate: TranslateService,@Inject(LOCAL_STORAGE) private localStorage: WebStorageService) {
     this.setLanguage(translate);
@@ -27,5 +27,7 @@ export class FooterComponent {
        translate.use('en');
        this.localStorage.set("language","en");
   }
+
+}
 
 }
