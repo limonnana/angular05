@@ -13,19 +13,19 @@ const routes: Routes = [
     component: LoginFormComponent
   },
   {
-    path:'register',
+    path: 'register',
     component: RegisterComponent
   },
   {
-    path:'users',
+    path: 'users',
     component: UserListComponent
   },
   {
-    path:'editUser/:id',
+    path: 'editUser/:id',
     component: EditUserComponent
   },
   {
-    path:'changePassword/:id',
+    path: 'changePassword/:id',
     component: ChangePassComponent
   }
 ];

@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'login04';
-  
+
 
   constructor() {
-    
+
   }
 
 

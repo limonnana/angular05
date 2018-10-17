@@ -23,23 +23,13 @@
 </div>
   <div class="form-group">
     <label for="password">{{'password' | translate }}</label>
-    <input type="password" id="password" class="form-control" formControlName="password">
+    <input type="text" id="password" class="form-control" formControlName="password">
   </div>
-
-  <div class="form-group">
-    <label for="retypePassword">{{'retypePassword' | translate }}</label>
-    <input type="password" id="retypePassword" class="form-control" formControlName="retypePassword">
-  </div>
-
 
   <button [disabled]="!registerForm.valid" class="btn btn-light"  >{{'register' | translate }}</button>
 
 </form>
 
 <br><br>
-<div *ngIf="showAlertPasswordError">
-  <ngb-alert [dismissible]="false" type="danger">
-    <strong>Error !</strong> {{messagePasswordError}} .
-  </ngb-alert>
-</div>
+
 </div>

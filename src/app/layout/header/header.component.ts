@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SecurityService } from '../../services/security.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ export class HeaderComponent  {
 
   navbarOpen = false;
 
-  constructor() { }
+  constructor(private security: SecurityService) { }
 
 
   toggleNavbar() {
