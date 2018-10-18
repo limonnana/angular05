@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
 })
 export class SecurityService {
 
-  isAutenticated: boolean;
+  authenticated: boolean;
+  returnValue: boolean;
+  userRol: string;
 
   constructor(private cookieService: CookieService, private router: Router) { }
 
@@ -18,17 +20,19 @@ export class SecurityService {
       const cookieJson = JSON.parse(cookie);
       const userId = cookieJson.userId;
       const token = cookieJson.token;
-      this.isAutenticated = true;
+      this.authenticated = true;
 
       if (userId === '' || token === '') {
-        this.isAutenticated = false;
+        this.authenticated = false;
         this.router.navigate(['login']);
       }
     } else {
-      this.isAutenticated = false;
+      this.authenticated = false;
       this.router.navigate(['login']);
     }
 
   }
+
+
 
 }

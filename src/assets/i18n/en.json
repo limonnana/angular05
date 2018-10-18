@@ -1,7 +1,6 @@
 {
  
     "name": "Name",
- 
     "lastName": "Last Name",
     "password": "Password",
     "changePassword": "Change Password",
@@ -11,6 +10,7 @@
     "delete": "Delete",
     "users": "Users",
     "login": "Login",
+    "logout": "Logout",
     "update": "Update",
     "wrongPassword" : "The password you have entered is wrong, or the email doesn't exist"
 }
