@@ -11,7 +11,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getAllUsers(){
+  getAllUsers() {
     return this.http.get<User[]>(`${environment.apiUrl}/userList`);
   }
 

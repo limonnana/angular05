@@ -7,9 +7,8 @@ import { Router } from '@angular/router';
 })
 export class SecurityService {
 
-  authenticated: boolean;
-  returnValue: boolean;
-  userRol: string;
+  isAuthenticated: boolean;
+  isAdmin: boolean;
 
   constructor(private cookieService: CookieService, private router: Router) { }
 
@@ -20,19 +19,53 @@ export class SecurityService {
       const cookieJson = JSON.parse(cookie);
       const userId = cookieJson.userId;
       const token = cookieJson.token;
-      this.authenticated = true;
+      this.isAuthenticated = true;
 
       if (userId === '' || token === '') {
-        this.authenticated = false;
+        this.isAuthenticated = false;
         this.router.navigate(['login']);
       }
     } else {
-      this.authenticated = false;
+      this.isAuthenticated = false;
       this.router.navigate(['login']);
     }
 
   }
 
+  isLogged(): boolean {
+    let result = false;
+    const cookie = this.cookieService.get('limonnana');
+    if (cookie !== '' && cookie !== undefined) {
+      const cookieJson = JSON.parse(cookie);
+      const userId = cookieJson.userId;
+      const token = cookieJson.token;
+      if (userId !== '' || token !== '') {
+        result = true;
+    }
+  }
+    return result;
+  }
 
+  checkIsAdmin(): boolean {
+    let result = false;
+
+    if (this.checkRole() === 'Admin') {
+      result = true;
+    }
+     return result;
+  }
+
+  checkRole(): string {
+    const cookie = this.cookieService.get('limonnana');
+    let role = '';
+    if (cookie !== '' && cookie !== undefined) {
+      const cookieJson = JSON.parse(cookie);
+      role = cookieJson.userRole;
+      if (role === 'ADMIN') {
+        this.isAdmin = true;
+      }
+    }
+  return role;
+  }
 
 }

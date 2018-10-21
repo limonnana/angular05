@@ -35,7 +35,7 @@ export class LoginFormComponent implements OnInit {
     // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
-  login(){
+  login() {
     console.log('login ... ');
   }
 
@@ -51,7 +51,7 @@ export class LoginFormComponent implements OnInit {
           this.getWrongPasswordMessage();
           this.showAlert = true;
         } else if (responseRestApi === 'Success') {
-          const value = {'userId': response.userId, 'token': response.token};
+          const value = {'userId': response.userId, 'token': response.token, 'userRole': response.userRole};
           const stringfy = JSON.stringify(value);
           this.cookieService.set('limonnana', stringfy, 1, '/');
           this.router.navigate(['users']);

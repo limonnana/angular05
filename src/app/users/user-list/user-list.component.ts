@@ -18,6 +18,7 @@ export class UserListComponent implements OnInit {
 
   constructor(private security: SecurityService, private userService: UserService, private router: Router) { 
     security.checkSecurity();
+    console.log('is authenticated: ' + security.isAuthenticated);
   }
 
   ngOnInit() {

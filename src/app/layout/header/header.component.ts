@@ -6,18 +6,18 @@ import { SecurityService } from '../../services/security.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   navbarOpen = false;
-  isAuthenticated: any;
-  
+  isAuthenticated: boolean;
+  isAdmin: boolean;
 
-  constructor(private security: SecurityService) { 
-   security.checkSecurity();
-  }
 
-  ngOnInit() {
-    this.isAuthenticated = this.security.authenticated;
+  constructor(private security: SecurityService) {
+   // security.checkSecurity();
+   this.isAuthenticated = security.isLogged();
+   this.isAdmin = security.checkIsAdmin();
+   console.log('is authenticated at header like Admin : ' + this.isAdmin);
   }
 
   toggleNavbar() {
