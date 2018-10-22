@@ -49,7 +49,7 @@ export class SecurityService {
   checkIsAdmin(): boolean {
     let result = false;
 
-    if (this.checkRole() === 'Admin') {
+    if (this.checkRole() === 'ADMIN') {
       result = true;
     }
      return result;
@@ -61,8 +61,10 @@ export class SecurityService {
     if (cookie !== '' && cookie !== undefined) {
       const cookieJson = JSON.parse(cookie);
       role = cookieJson.userRole;
+      console.log('role from security service ' + role);
       if (role === 'ADMIN') {
         this.isAdmin = true;
+        role = 'ADMIN';
       }
     }
   return role;

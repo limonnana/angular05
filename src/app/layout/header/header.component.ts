@@ -17,6 +17,7 @@ export class HeaderComponent {
    // security.checkSecurity();
    this.isAuthenticated = security.isLogged();
    this.isAdmin = security.checkIsAdmin();
+   console.log(' is authenticated: ' + this.isAuthenticated);
    console.log('is authenticated at header like Admin : ' + this.isAdmin);
   }
 
