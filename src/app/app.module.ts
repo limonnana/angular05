@@ -20,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChangePassComponent } from './users/change-pass/change-pass.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -32,7 +33,8 @@ import { FooterComponent } from './layout/footer/footer.component';
     EditUserComponent,
     ChangePassComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

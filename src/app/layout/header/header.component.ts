@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SecurityService } from '../../services/security.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +15,10 @@ export class HeaderComponent {
   isAdmin: boolean;
 
 
-  constructor(private security: SecurityService) {
-   // security.checkSecurity();
+  constructor(private security: SecurityService,  private cookieService: CookieService, private router: Router) {
    this.isAuthenticated = security.isLogged();
    this.isAdmin = security.checkIsAdmin();
-   console.log(' is authenticated: ' + this.isAuthenticated);
+   console.log(' is authenticated at header: ' + this.isAuthenticated);
    console.log('is authenticated at header like Admin : ' + this.isAdmin);
   }
 
@@ -25,5 +26,9 @@ export class HeaderComponent {
     this.navbarOpen = !this.navbarOpen;
    }
 
+   logout(){
+    this.cookieService.delete('limonnana');
+    this.router.navigate(['login']);
+   }
 
 }

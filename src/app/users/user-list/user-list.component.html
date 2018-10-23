@@ -19,7 +19,7 @@
     <tbody>
     <tr *ngFor="let user of users">
       <td><a routerLink="/editUser/{{user.id}}">{{ user.name }} {{ user.lastName }}</a></td>
-      <td>{{ user.email }} {{user.role}} </td>
+      <td>{{ user.email }}  </td>
       <td><button class="btn btn-danger" (click)="theAlert(user)"> {{'delete' | translate}}</button>
        
     </tr>
