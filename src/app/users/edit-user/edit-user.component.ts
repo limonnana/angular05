@@ -39,11 +39,6 @@ export class EditUserComponent implements OnInit {
         email: data.email
        });
       });
-  
-    // this.userService.getUserById(this.userId$)
-     // .subscribe( data => {
-      //  this.theUser = data;
-     // });
   }
 
   get f() { return this.editForm.controls; }
