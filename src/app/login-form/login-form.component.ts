@@ -54,7 +54,8 @@ export class LoginFormComponent implements OnInit {
           const value = {'userId': response.userId, 'token': response.token, 'userRole': response.userRole};
           const stringfy = JSON.stringify(value);
           this.cookieService.set('limonnana', stringfy, 1, '/');
-          this.router.navigate(['users']);
+          this.router.navigate(['/home']);
+          //this.loadComponentAgain(); TODO to refresh content and show buttons accordingly
         }
 
       });

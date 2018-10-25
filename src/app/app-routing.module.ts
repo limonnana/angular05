@@ -6,9 +6,14 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { ChangePassComponent } from './users/change-pass/change-pass.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 
+  {
+    path: 'home',
+    component: HomeComponent
+  },
   {
     path: 'login',
     component: LoginFormComponent

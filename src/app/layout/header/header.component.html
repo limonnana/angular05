@@ -21,11 +21,13 @@
 
   
     <ng-container *ngIf='isAuthenticated'>
+       <ng-container *ngIf='isAdmin'>
         <li class="nav-item">
             <a class="nav-link" href="users">{{'users' | translate}}</a>
         </li>
+         </ng-container>
         <li class="nav-item">
-             <a class="nav-link" href="logout">{{'logout' | translate}}</a>
+             <a class="nav-link" href="#" (click)="logout()">{{'logout' | translate}}</a>
         </li>
     </ng-container>
   

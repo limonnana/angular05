@@ -21,7 +21,7 @@ import { ChangePassComponent } from './users/change-pass/change-pass.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
-
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -35,7 +35,8 @@ import { ForgotPasswordComponent } from './users/forgot-password/forgot-password
     ChangePassComponent,
     HeaderComponent,
     FooterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

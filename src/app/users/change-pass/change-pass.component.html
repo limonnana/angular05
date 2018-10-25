@@ -8,15 +8,11 @@
         
         <div class="form-group">
           <label for="newPassword">New Password:</label>
-          <input type="password" formControlName="newPassword"  class="form-control" id="newPassword">
+          <input type="text" formControlName="newPassword"  class="form-control" id="newPassword">
         </div>
     
-        <div class="form-group">
-          <label for="retypePassword">Retype Password:</label>
-          <input type="password" formControlName="retypePassword"  class="form-control" id="retypePassword">
-        </div>
-
-        <button  [disabled]="!passwordForm.valid" >Update</button>
+    
+        <button class="btn btn-light" [disabled]="!passwordForm.valid" >Update</button>
       </form>
 
       <br><br>
