@@ -9,23 +9,24 @@ import { LOCAL_STORAGE,WebStorageService} from 'angular-webstorage-service';
 })
 export class FooterComponent  {
 
-  constructor(private translate: TranslateService,@Inject(LOCAL_STORAGE) private localStorage: WebStorageService) {
+  constructor(private translate: TranslateService,
+    @Inject(LOCAL_STORAGE) private localStorage: WebStorageService) {
     this.setLanguage(translate);
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
-    this.localStorage.set("language",language);
+    this.localStorage.set('language', language);
    }
 
-   setLanguage(translate: TranslateService){
-    if(this.localStorage.get('language')){
+   setLanguage(translate: TranslateService) {
+    if (this.localStorage.get('language')) {
       translate.setDefaultLang(this.localStorage.get('language'));
       translate.use(this.localStorage.get('language'));
-  }else {
+  } else {
        translate.setDefaultLang('en');
        translate.use('en');
-       this.localStorage.set("language","en");
+       this.localStorage.set('language', 'en');
   }
 
 }
