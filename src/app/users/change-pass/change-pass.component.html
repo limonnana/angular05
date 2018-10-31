@@ -7,12 +7,12 @@
       <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
         
         <div class="form-group">
-          <label for="newPassword">New Password:</label>
+          <label for="newPassword">{{'newPassword' | translate}}:</label>
           <input type="text" formControlName="newPassword"  class="form-control" id="newPassword">
         </div>
     
     
-        <button class="btn btn-light" [disabled]="!passwordForm.valid" >Update</button>
+        <button class="btn btn-light" [disabled]="!passwordForm.valid" >{{'update' | translate}}</button>
       </form>
 
       <br><br>

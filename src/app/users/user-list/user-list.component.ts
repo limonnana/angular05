@@ -17,7 +17,7 @@ export class UserListComponent implements OnInit {
   users: User[];
 
   constructor(private security: SecurityService, private userService: UserService, private router: Router) { 
-    security.checkSecurity();
+    security.checkAdmin();
     console.log('is authenticated: ' + security.isAuthenticated);
   }
 

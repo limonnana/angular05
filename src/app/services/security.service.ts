@@ -10,7 +10,11 @@ export class SecurityService {
   isAuthenticated: boolean;
   isAdmin: boolean;
 
-  constructor(private cookieService: CookieService, private router: Router) { }
+  constructor(private cookieService: CookieService, private router: Router) { 
+    //this.router.routeReuseStrategy.shouldReuseRoute = function() {
+     // return true;
+  //};
+  }
 
   checkSecurity() {
     const cookie = this.cookieService.get('limonnana');
@@ -44,6 +48,14 @@ export class SecurityService {
     }
   }
     return result;
+  }
+
+  checkAdmin(){
+    if(!this.checkIsAdmin()){
+      console.log('is admin: ' + this.checkIsAdmin());
+     this.cookieService.delete('limonnana');
+     this.router.navigate(['login']);
+    }
   }
 
   checkIsAdmin(): boolean {

@@ -12,5 +12,10 @@
     "login": "Ingresar",
     "logout": "Salir",
     "update": "Actualizar",
-    "wrongPassword" : "La contraseña ingresada es incorrecta, o la direccion de mail no existe "
+    "wrongPassword" : "La contraseña ingresada es incorrecta, o la direccion de mail no existe ",
+    "forgotPassword" : "Te olvidaste la contraseña ",
+    "resetPasswordHere" : "La podes restablecer aca ",
+    "resetPassword" : "Restablecer contraseña",
+    "clickHere" : "clickea aqui",
+    "newPassword" : "Nueva contraseña"
 }

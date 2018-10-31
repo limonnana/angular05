@@ -12,5 +12,11 @@
     "login": "Login",
     "logout": "Logout",
     "update": "Update",
-    "wrongPassword" : "The password you have entered is wrong, or the email doesn't exist"
+    "wrongPassword" : "The password you have entered is wrong, or the email doesn't exist",
+    "forgotPassword" : "Forgot Password",
+    "resetPasswordHere" : "You can reset it here",
+    "resetPassword" : "Reset password",
+    "clickHere" : "click here",
+    "newPassword" : "New Password"
+    
 }
