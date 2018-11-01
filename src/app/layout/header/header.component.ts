@@ -26,7 +26,7 @@ export class HeaderComponent {
     this.navbarOpen = !this.navbarOpen;
    }
 
-   logout(){
+   logout() {
     this.cookieService.delete('limonnana');
     this.router.navigate(['login']);
    }
